@@ -1,4 +1,14 @@
 {
   "css.validate": false,
-  "tailwindCSS.validate": true
+  "tailwindCSS.validate": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html",
+    "css",
+    "toml"
+  ]
 }
