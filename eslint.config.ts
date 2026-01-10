@@ -4,6 +4,7 @@ import { defineConfig } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 import angular from 'angular-eslint'
 import * as format from 'eslint-plugin-format'
+import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss'
 
 export default defineConfig(
   {
@@ -66,6 +67,24 @@ export default defineConfig(
         'error',
         { language: 'toml', languageOptions: { indentWidth: 2 } },
       ],
+    },
+  },
+  {
+    plugins: {
+      'better-tailwindcss': eslintPluginBetterTailwindcss,
+    },
+    rules: {
+      ...eslintPluginBetterTailwindcss.configs['recommended-warn'].rules,
+      ...eslintPluginBetterTailwindcss.configs['recommended-error'].rules,
+      'better-tailwindcss/enforce-consistent-line-wrapping': [
+        'warn',
+        { printWidth: 100 },
+      ],
+    },
+    settings: {
+      'better-tailwindcss': {
+        entryPoint: 'src/styles.css',
+      },
     },
   },
 )
